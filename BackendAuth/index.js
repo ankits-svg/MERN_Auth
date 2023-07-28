@@ -3,10 +3,11 @@ const { authRouter } = require('./routes/auth.routes');
 const { connection } = require('./config/db');
 const app=express()
 require('dotenv').config()
+const cors=require('cors')
 // console.log(process.env.port)
 const port=process.env.port || 5000;
 app.use(express.json())
-
+app.use(cors())
 app.use("/auth",authRouter)
 
 
